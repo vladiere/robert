@@ -7,13 +7,15 @@ img
 
 <template>
   <q-page class="column justify-center bg-dark text-white q-pb-xl" padding>
-    <div class="row">
+    <div :class="Platform.is.mobile ? 'column q-gutter-y-lg' : 'row'">
       <img
-        class="col-4"
+        :class="!Platform.is.mobile ? 'col-4' : ''"
         src="~assets/picture.png"
       />
-      <div class="col column justify-center items-center">
-        <div class="column">
+      <div :class="Platform.is.mobile ? 'column justify-center items-center' : 'col column justify-center items-center'">
+          <span v-if="Platform.is.mobile" class="text-h4">HI! I'm</span>
+          <span v-if="Platform.is.mobile" class="text-h3">Robert Quijano</span>
+        <div v-if="!Platform.is.mobile" class="column">
           <span class="text-h3">HI! I'm</span>
           <span class="text-h1">Robert Quijano</span>
         </div>
@@ -24,6 +26,7 @@ img
 
 <script setup>
 import { defineComponent } from 'vue'
+import { Platform } from 'quasar';
 
 defineComponent({
   name: 'IndexPage'

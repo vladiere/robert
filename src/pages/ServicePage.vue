@@ -1,8 +1,8 @@
 <template>
   <q-page class="column q-gutter-y-lg justify-center bg-dark text-white q-pb-xl" padding>
     <span class="self-center text-h2 text-weight-bolder q-my-xl">What i do</span>
-    <div class="row">
-      <img class="col" src="https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&w=600" />
+    <div :class="Platform.is.mobile ? 'column' : 'row'">
+      <img class="col" src="https://images.pexels.com/photos/1226398/pexels-photo-1226398.jpeg?auto=compress&cs=tinysrgb&w=600" :style="Platform.is.mobile ? 'width: 100%' : '' "/>
       <div class="col column q-gutter-y-lg q-px-md">
         <span class="text-h4 text-weight-bolder">Todo List APP</span>
         <span class="text-h6 text-weight-regular">
@@ -15,8 +15,9 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col column q-gutter-y-lg q-px-md text-right">
+
+    <div :class="Platform.is.mobile ? 'column reverse' : 'row'">
+      <div :class="Platform.is.mobile ? 'column q-gutter-y-lg q-px-md' : 'col column q-gutter-y-lg q-px-md text-right'">
         <span class="text-h4 text-weight-bolder">My Unique App</span>
         <span class="text-h6 text-weight-regular">
 Experience unparalleled efficiency with my unique app, ingeniously powered by Vue.js. This innovative application redefines user interaction, offering a seamless blend of functionality and distinctive features. Dive into a world where your tasks and goals are effortlessly managed, creating a personalized and exceptional user experience, all thanks to the advanced capabilities of Vue.js.
@@ -26,13 +27,14 @@ Experience unparalleled efficiency with my unique app, ingeniously powered by Vu
           <q-btn flat rounded padding="none" icon="mdi-web" />
         </div>
       </div>
-      <img class="col" src="https://images.pexels.com/photos/4286932/pexels-photo-4286932.jpeg?auto=compress&cs=tinysrgb&w=600" />
+      <img class="col" src="https://images.pexels.com/photos/4286932/pexels-photo-4286932.jpeg?auto=compress&cs=tinysrgb&w=600"  :style="Platform.is.mobile ? 'width: 100%' : '' "/>
     </div>
   </q-page>
 </template>
 
 <script setup>
 import { defineComponent } from 'vue';
+import { Platform } from 'quasar';
 
 defineComponent({
   name: 'ServicePage'
